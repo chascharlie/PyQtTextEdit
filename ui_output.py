@@ -22,9 +22,27 @@ class Ui_Form(object):
         self.helpmenu = self.menubar.addMenu("Help")
         self.verticalLayout.addWidget(self.menubar)
 
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(Form)
-        self.plainTextEdit.setObjectName("plainTextEdit")
-        self.verticalLayout.addWidget(self.plainTextEdit)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        
+        self.addTabButton = QtWidgets.QToolButton(Form)
+        self.addTabButton.setObjectName("addTabButton")
+        self.horizontalLayout.addWidget(self.addTabButton)
+
+        self.closeTabButton = QtWidgets.QToolButton(Form)
+        self.closeTabButton.setObjectName("closeTabButton")
+        self.horizontalLayout.addWidget(self.closeTabButton)
+
+        spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout.addItem(spacer)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+        self.tabWidget = QtWidgets.QTabWidget(Form)
+        self.tabWidget.setObjectName("tabWidget")
+        self.verticalLayout.addWidget(self.tabWidget)
+        #self.plainTextEdit = QtWidgets.QPlainTextEdit(Form)
+        #self.plainTextEdit.setObjectName("plainTextEdit")
+        #self.verticalLayout.addWidget(self.plainTextEdit)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -32,3 +50,5 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "PyQtTextEdit"))
+        self.addTabButton.setText(_translate("Form", "+"))
+        self.closeTabButton.setText(_translate("Form", "x"))
