@@ -20,11 +20,12 @@ class MainWindow(QWidget,Ui_Form):
         self.plainTextEdit.clear()
 
     def openFile(self):
-        self.fileName = QFileDialog.getOpenFileName(self,"Open")[0]
-        with open(self.fileName,"r") as read:
-            contents = read.read()
-            self.plainTextEdit.clear()
-            self.plainTextEdit.insertPlainText(contents)
+        self.fileName = QFileDialog.getOpenFileName(self,"Open")[0] or None
+        if self.fileName:
+            with open(self.fileName,"r") as read:
+                contents = read.read()
+                self.plainTextEdit.clear()
+                self.plainTextEdit.insertPlainText(contents)
     
     def saveFile(self):
         if self.fileName == None:
@@ -36,8 +37,9 @@ class MainWindow(QWidget,Ui_Form):
                 write.write(contents)
 
     def saveAsFile(self):
-        self.fileName = QFileDialog.getSaveFileName(self,"Save As")[0]
-        self.saveFile()
+        self.fileName = QFileDialog.getSaveFileName(self,"Save As")[0] or None
+        if self.fileName:
+            self.saveFile()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
