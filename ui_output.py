@@ -40,9 +40,6 @@ class Ui_Form(object):
         self.tabWidget = QtWidgets.QTabWidget(Form)
         self.tabWidget.setObjectName("tabWidget")
         self.verticalLayout.addWidget(self.tabWidget)
-        #self.plainTextEdit = QtWidgets.QPlainTextEdit(Form)
-        #self.plainTextEdit.setObjectName("plainTextEdit")
-        #self.verticalLayout.addWidget(self.plainTextEdit)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
