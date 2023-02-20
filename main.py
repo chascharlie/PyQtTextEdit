@@ -1,5 +1,6 @@
-from PyQt6.QtWidgets import QApplication, QWidget, QFileDialog
+from PyQt6.QtWidgets import *
 
+from dialog import *
 from ui_output import Ui_Form
 import sys
 
@@ -8,10 +9,13 @@ class MainWindow(QWidget,Ui_Form):
         super(MainWindow,self).__init__(parent)
         self.setupUi(self)
 
-        self.newButton.clicked.connect(self.newFile)
-        self.openButton.clicked.connect(self.openFile)
-        self.saveButton.clicked.connect(self.saveFile)
-        self.saveAsButton.clicked.connect(self.saveAsFile)
+        self.filemenu.addAction("New",self.newFile)
+        self.filemenu.addAction("Open",self.openFile)
+        self.filemenu.addAction("Save",self.saveFile)
+        self.filemenu.addAction("Save As",self.saveAsFile)
+        self.filemenu.addSeparator()
+        self.filemenu.addAction("Exit",lambda: self.close())
+        self.helpmenu.addAction("About",self.about)
 
         self.fileName = None
 
@@ -40,6 +44,9 @@ class MainWindow(QWidget,Ui_Form):
         self.fileName = QFileDialog.getSaveFileName(self,"Save As")[0] or None
         if self.fileName:
             self.saveFile()
+
+    def about(self):
+        AboutDialog().exec()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

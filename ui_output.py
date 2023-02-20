@@ -16,30 +16,11 @@ class Ui_Form(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
 
-
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-
-        self.newButton = QtWidgets.QPushButton(Form)
-        self.newButton.setObjectName("newButton")
-        self.horizontalLayout.addWidget(self.newButton)
-
-        self.openButton = QtWidgets.QPushButton(Form)
-        self.openButton.setObjectName("openButton")
-        self.horizontalLayout.addWidget(self.openButton)
-
-        self.saveButton = QtWidgets.QPushButton(Form)
-        self.saveButton.setObjectName("saveButton")
-        self.horizontalLayout.addWidget(self.saveButton)
-
-        self.saveAsButton = QtWidgets.QPushButton(Form)
-        self.saveAsButton.setObjectName("saveAsButton")
-        self.horizontalLayout.addWidget(self.saveAsButton)
-
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout.addItem(spacerItem)
-
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.menubar = QtWidgets.QMenuBar(Form)
+        self.menubar.setObjectName("menubar")
+        self.filemenu = self.menubar.addMenu("File")
+        self.helpmenu = self.menubar.addMenu("Help")
+        self.verticalLayout.addWidget(self.menubar)
 
         self.plainTextEdit = QtWidgets.QPlainTextEdit(Form)
         self.plainTextEdit.setObjectName("plainTextEdit")
@@ -51,7 +32,3 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "PyQtTextEdit"))
-        self.newButton.setText(_translate("Form", "New"))
-        self.openButton.setText(_translate("Form", "Open"))
-        self.saveButton.setText(_translate("Form", "Save"))
-        self.saveAsButton.setText(_translate("Form", "Save As"))
