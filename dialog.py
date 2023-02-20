@@ -4,6 +4,9 @@ class AboutDialog(QDialog):
     def __init__(self):
         super().__init__()
 
+        self.setWindowTitle("About")
+        self.setFixedSize(300,150)
+        
         self.layout = QVBoxLayout()
         info = QLabel('''
         PyQtTextEdit
