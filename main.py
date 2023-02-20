@@ -9,9 +9,9 @@ class MainWindow(QWidget,Ui_Form):
         super(MainWindow,self).__init__(parent)
         self.setupUi(self)
 
-        self.filemenu.addAction("New",self.newFile)
-        self.filemenu.addAction("Open",self.openFile)
-        self.filemenu.addAction("Save",self.saveFile)
+        self.filemenu.addAction("New",self.newFile).setShortcut("Ctrl+N")
+        self.filemenu.addAction("Open",self.openFile).setShortcut("Ctrl+O")
+        self.filemenu.addAction("Save",self.saveFile).setShortcut("Ctrl+S")
         self.filemenu.addAction("Save As",self.saveAsFile)
         self.filemenu.addSeparator()
         self.filemenu.addAction("Exit",lambda: self.close())
